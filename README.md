@@ -9,7 +9,8 @@ The data is based on information on the target's registration, keep this in mind
 py voteref.py [flag] [search parameters if -s]
 
 
-```BASIC COMMANDS              DESC
+```
+BASIC COMMANDS              DESC
 
 -h                          Command to show this message
 
@@ -29,7 +30,8 @@ SEARCH COMMANDS             DESC
 
 -u                          Add URL to verify results(URL goes to voteref.com; Only in pretty mode)
 
--q                          Query String (Use quotes if more than one word)```
+-q                          Query String (Use quotes if more than one word)
+```
 
 
 ##Upon downloading the tool, make sure to do pip install -r requirements.txt, since you'll need the requests-html library and the lxml html parser to make the requests.
