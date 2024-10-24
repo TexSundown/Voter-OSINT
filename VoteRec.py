@@ -26,7 +26,7 @@ DISCLAIMER: I am not advocating the usage of this tool for illegal purposes, onl
           -h                          Command to show this message
           -a                          Shows all available states/state codes
           -s                          Begin your search, retrieving records that match the request
-          -i                          Interactive mode (WIP)
+          -i                          Interactive mode
           
           SEARCH COMMANDS             DESC
           -c                          State Code (AA for all states/Default)

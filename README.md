@@ -19,7 +19,7 @@ BASIC COMMANDS              DESC
 
 -s                          Begin your search, retrieving records that match the request
 
--i                          Interactive mode (WIP)
+-i                          Interactive mode
 
 
 SEARCH COMMANDS             DESC
