@@ -1,0 +1,2 @@
+requests-html   == 0.10.0
+lxml_html_clean ==  0.3.1

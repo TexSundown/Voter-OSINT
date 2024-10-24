@@ -2,11 +2,9 @@
 #By Tex
 from requests_html import HTMLSession
 import sys
+
+
 request = HTMLSession()
-
-#Dependencies: requests-html   == 0.10.0
-#              lxml_html_clean ==  0.3.1
-
 #If state is specified, 'state' is appended to the url
 def getStates():
     states = eval(request.get(url ='https://voteref.com/state/map').text)
@@ -75,7 +73,7 @@ def search(args):
         payload["state"] = sc
     
     ask = request.post(url=url, json=payload)
-    raw = eval(ask.text.replace('null', 'None'))
+    raw = eval(ask.text.replace('null', '"N/A"'))
     verifyUrl = ''
     if pretty:
         for person in raw['data']:
@@ -83,12 +81,46 @@ def search(args):
                 verifyUrl = f"https://voteref.com/VoterDetails?personId={person['personId']}&state={person['state']}"
             print(f"{person['fullName']:30s}  {person['dobOrAge']}   {person['address']}     {verifyUrl}")
     else:
+        #Prints out json
         print(raw)
         
     
 
 def interactiveMode():
-    pass
+    sc = input('Please enter a state code (AA if no specific state): ')
+    vUrl = False
+    ss = False
+    raw = False
+    url = 'https://voteref.com/voter/grid/'
+    if sc.capitalize() !='AA' and len(sc) == 2:
+        url +='state/'
+        ss = True
+    try:
+        m = int(input('Please enter the max number of results you would like to see: '))
+    except ValueError:
+        m = 25
+    if input('Would you like to have the data in JSON format? (y/n) :').lower() == 'y':
+        raw = True
+        filename = input("Please enter the desired filename without extension: ") + '.json'
+    elif input('Would you like to have the URL to confirm the data? (y/n) :').lower() == 'y':
+        vUrl = True
+    q = input("Please enter your query string: ")
+    payload = {"columns":[{"data":"fullName","name":"","searchable":True,"orderable":True,"search":{"value":"","regex":False}},{"data":"address","name":"","searchable":True,"orderable":False,"search":{"value":"","regex":False}},{"data":"dobOrAge","name":"","searchable":True,"orderable":False,"search":{"value":"","regex":False}},{"data":"numberOfTimesVoted","name":"","searchable":True,"orderable":False,"search":{"value":"","regex":False}},{"data":"party","name":"","searchable":True,"orderable":False,"search":{"value":"","regex":False}}],"draw":2,"length":m,"order":[{"column":0,"dir":"asc"}],"searchText":q,"start":0}
+    if ss:
+        payload["state"] = sc
+    data = request.post(url=url, json=payload).text
+    
+    if raw:
+        with open(file=filename, mode='w') as f:
+            f.write(data)
+            f.close()
+    else:
+        data = eval(data.replace('null', '"N/A"'))
+        for person in data['data']:
+            if vUrl:
+                verifyUrl = f"https://voteref.com/VoterDetails?personId={person['personId']}&state={person['state']}"
+            print(f"{person['fullName']:30s}  {person['dobOrAge']}   {person['address']}     {verifyUrl}")
+    
 
 def main():
     try:
