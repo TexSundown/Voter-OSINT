@@ -2,7 +2,7 @@ This is a quick script to assist in OSINT pertaining to people registered to vot
 The data is based on information on the target's registration, keep this in mind in case of discrepancies.
 
 
-DISCLAIMER: I am not advocating the usage of this tool for illegal purposes, only for educational purposes
+**DISCLAIMER: I am not advocating the usage of this tool for illegal purposes, only for educational purposes**
 
 
 Usage: py voteref.py [flag] [search parameters if -s]
