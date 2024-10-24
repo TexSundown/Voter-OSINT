@@ -5,14 +5,19 @@ The data is based on information on the target's registration, keep this in mind
 **DISCLAIMER: I am not advocating the usage of this tool for illegal purposes, only for educational purposes**
 
 
-Usage: py voteref.py [flag] [search parameters if -s]
+#Usage: 
+py voteref.py [flag] [search parameters if -s]
 
 
-BASIC COMMANDS              DESC
+`BASIC COMMANDS              DESC
+
 -h                          Command to show this message
+
 -a                          Shows all available states/state codes
+
 -s                          Begin your search, retrieving records that match the request
--i                          Interactive mode (WIP)
+
+-i                          Interactive mode (WIP)`
 
 
 SEARCH COMMANDS             DESC
