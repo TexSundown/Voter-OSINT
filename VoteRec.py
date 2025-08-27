@@ -1,10 +1,11 @@
 #VoteRef.com CLI
 #By Tex
 from requests_html import HTMLSession
+import cloudscraper
 import sys
 
 
-request = HTMLSession()
+request = cloudscraper.create_scraper()
 #If state is specified, 'state' is appended to the url
 def getStates():
     states = eval(request.get(url ='https://voteref.com/state/map').text)
