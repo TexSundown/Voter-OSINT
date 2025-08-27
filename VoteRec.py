@@ -1,6 +1,5 @@
 #VoteRef.com CLI
 #By Tex
-from requests_html import HTMLSession
 import cloudscraper
 import sys
 
