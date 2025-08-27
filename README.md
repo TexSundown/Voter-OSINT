@@ -35,7 +35,7 @@ SEARCH COMMANDS             DESC
 ```
 
 
-## Upon downloading the tool, make sure to do pip install -r requirements.txt, since you'll need the requests-html library and the lxml html parser to make the requests.
+## Upon downloading the tool, make sure to do pip install -r requirements.txt, since you'll need the cloudscraper library and the lxml html parser to make the requests.
 
 
 Keep in mind as of October 2024, only 33/50 states allow the publication of their voter records, but the non profit running the site plans to have all of the states' records available. If you're not sure if the target's state is available, you can check with this tool too.
